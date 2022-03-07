@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Câu 2</title>
+    <script src="../jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.css"
+    />
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.js"></script>
+    
+    <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css"
+    />
+    <!-- <script>
+     
+    function F1(){
+     $.ajax({
+      url: 'https://62145b9789fad53b1f1171f2.mockapi.io/datatable',
+      type: 'GET', //mặc định get
+      dataType: 'json', //mặc định là text
+      success:function(dataReturn){
+          console.log(dataReturn);
+          $.each(dataReturn, function(k,v){
+              var s = `<tr>
+                      <td>${v.id}</td>
+                      <td>${v.name}</td>
+                      <td>${v.birthday}</td>
+                      <td>${v.avatar}</td>
+                      </tr>`;
+              $('#example').append(s);
+          });
+      }
+            });
+          } 
+    
+  
+  </script> -->
+  </head>
+  <body >
+    <table border="1" id="example" class="display" style="width: 100%" >
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Birthday</th>
+          <th>Avatar</th>
+        </tr>
+      </thead>
+     
+    </table>
+  </body>
+  <script type="text/javascript">
+    $(document).ready(function() {
+     $("#example").DataTable({
+         "ajax":{
+             "url":"data.txt",
+             "dataSrc":""
+         },
+         "columns":
+         [
+             {"data":"id"},
+             {"data":"name"},
+             {"data":"birthday"},
+             {"data":"avatar",
+              "render": function (data) {
+                return '<img src="' + data + '" class="avatar" width="100" height="100"/>';
+                }             
+             }
+         ]
+     });
+ } );  
+</script> 
+</html>
